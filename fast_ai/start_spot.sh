@@ -1,3 +1,5 @@
+shopt -s expand_aliases
+
 # The config file was created in ondemand_to_spot.sh
 export config_file=my.conf
 
@@ -32,6 +34,7 @@ fi
 export name=fast-ai
 if [ "$ec2spotter_key_name" = "aws-key-$name" ] 
 then
-	echo Then connect to your instance: ssh -i ~/.ssh/aws-key-$name.pem ubuntu@$ip
-	echo Jupyter notebook url: https://$ip:8888/
+	xdg-open https://$ip:8888/
+	echo "alias connect-spot=\"ssh -o StrictHostKeyChecking=no -i ~/.ssh/aws-key-$name.pem ubuntu@$ip\"" > ~/.aws-alias
+	echo "alias stop-spot=\"aws ec2 terminate-instances --instance-ids $instance_id\"" >> ~/.aws-alias
 fi
