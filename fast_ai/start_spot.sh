@@ -33,5 +33,5 @@ export name=fast-ai
 if [ "$ec2spotter_key_name" = "aws-key-$name" ] 
 then
 	echo Then connect to your instance: ssh -i ~/.ssh/aws-key-$name.pem ubuntu@$ip
-	echo Jupyter notebook located at https://$ip:8888/
+	echo Jupyter notebook url: https://$ip:8888/
 fi
