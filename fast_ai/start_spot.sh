@@ -34,7 +34,7 @@ fi
 export name=fast-ai
 if [ "$ec2spotter_key_name" = "aws-key-$name" ] 
 then
-	xdg-open https://$ip:8888/
+	xdg-open http://$ip:8888/
 	echo "alias connect-spot=\"ssh -o StrictHostKeyChecking=no -i ~/.ssh/aws-key-$name.pem ubuntu@$ip\"" > ~/.aws-alias
 	echo "alias stop-spot=\"aws ec2 terminate-instances --instance-ids $instance_id\"" >> ~/.aws-alias
 fi
